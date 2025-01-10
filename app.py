@@ -9,14 +9,18 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import io
 import os
+from models import db
+
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
-
-# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///expense_data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+db.init_app(app)
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
 
 # Flask-Login configuration
 login_manager = LoginManager()

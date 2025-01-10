@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Expense Reports</h2>
+
+<h3>Total Expense: ${{ total_expense }}</h3>
+
+<h4>Summary by Category</h4>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Total Amount</th>
+    </tr>
+    {% for row in summary %}
+    <tr>
+        <td>{{ row['Category'] }}</td>
+        <td>${{ row['Amount'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h4>Expense Distribution</h4>
+<img src="/report/plot.png" alt="Expenses by Category" />
+
+{% endblock %}

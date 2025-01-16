@@ -88,3 +88,14 @@ Start the Flask development server:
     python app.py
     
 The app will be accessible at http://127.0.0.1:5000 in your browser.
+
+## How to Use
+
+**Register:** Create a new account.
+
+**Login:** Access your personalized expense tracker.
+
+**Add Expenses:** Enter your daily expenses with categories.
+
+**View Reports:** Generate and view spending reports.
+
